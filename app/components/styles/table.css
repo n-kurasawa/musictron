@@ -1,0 +1,17 @@
+.thead {
+  background-color: #21252b;
+  color: #9da5b4;
+}
+
+.th {
+  border-right: 1px solid #181a1f;
+  border-bottom: 1px solid #181a1f;
+}
+
+.odd {
+  background-color: rgb(40, 44, 52);
+}
+
+.even {
+  background-color: #21252b;
+}

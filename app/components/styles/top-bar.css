@@ -1,0 +1,29 @@
+.topBar {
+  height: 53px;
+  background-color: #21252b;
+  color: #9da5b4;
+  border-bottom: 1px solid #181a1f;
+}
+
+.playing {
+  position: relative;
+  top: 12px;
+  font-size: 18px;
+  margin-left: 50px;
+  float: left;
+}
+
+.playArea {
+  margin-right: 50px;
+  float: right;
+}
+
+.play {
+  font-size: 32px;
+  margin-left: 34px;
+  margin-right: 30px;
+}
+
+.fast {
+  font-size: 26px;
+}
