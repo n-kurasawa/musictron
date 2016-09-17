@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Sidebar from '../components/sidebar';
+import Sidebar from '../containers/sidebar-container';
 import MainPanel from '../components/main-panel';
 import Footer from '../components/footer';
 

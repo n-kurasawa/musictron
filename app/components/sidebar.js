@@ -1,28 +1,50 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './styles/sidebar.css';
+const ENTER_KEY = 13;
 
 class Sidebar extends Component {
-  static propTypes = {};
+  constructor(props) {
+    super(props);
+    this.search = this.props.search;
+  }
+
+  static propTypes = {
+    search: PropTypes.func.isRequired,
+    searchItems: PropTypes.array.isRequired
+  };
+
+  handleSubmit(event) {
+    if (event.which === ENTER_KEY) {
+      var val = event.target.value.trim();
+      if (val) {
+        this.search(val);
+      }
+    }
+  }
 
   render() {
+    const { searchItems } = this.props;
+    const items = searchItems.map((item) =>  {
+      return (
+        <li className={`list-group-item ${styles.listGroupItem}`}>
+          <div className="media-body">
+            <div class="checkbox">
+              <label className={ styles.label }>
+                <input type="checkbox" /> {item.snippet.title}
+              </label>
+            </div>
+          </div>
+        </li>
+      )
+    });
+
     return (
-      <div className={`pane-sm sidebar ${styles.sidebar}`}>
+      <div className={`pane-one-fourth sidebar ${styles.sidebar}`}>
         <ul className={`list-group ${styles.listGroup}`}>
           <li className="list-group-header">
-            <input className="form-control" type="text" placeholder="Search for someone" />
+            <input className="form-control" type="text" placeholder="Search" onKeyDown={(e) => {this.handleSubmit(e)}} />
           </li>
-          <li className={`list-group-item ${styles.listGroupItem}`}>
-            <div className="media-body">
-              <strong>List item title</strong>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-          </li>
-          <li className={`list-group-item ${styles.listGroupItem}`}>
-            <div className="media-body">
-              <strong>List item title</strong>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-          </li>
+          { items }
         </ul>
       </div>
     );
