@@ -2,39 +2,30 @@ import React, { Component, PropTypes } from 'react';
 import styles from './styles/table.css';
 
 class Table extends Component {
-  static propTypes = {};
+  static propTypes = {
+    checkItems: PropTypes.array.isRequired
+  };
 
   render() {
+    const { checkItems } = this.props;
+    const items = checkItems.map((item, index) => {
+      const style = (index % 2 === 0) ? styles.even : styles.odd;
+      return (
+        <tr key={index}>
+          <td className={style}>{item.snippet.title}</td>
+        </tr>
+      );
+    });
+
     return (
-      <table className="table-striped">
+      <table className={`table-striped ${styles.table}`}>
         <thead className={styles.thead}>
           <tr>
-            <th className={styles.th}>Name</th>
-            <th className={styles.th}>Kind</th>
-            <th className={styles.th}>File Size</th>
+            <th className={styles.th}>Title</th>
           </tr>
         </thead>
         <tbody>
-          <tr className={styles.odd}>
-            <td>photon.css</td>
-            <td>CSS</td>
-            <td>28K</td>
-          </tr>
-          <tr>
-            <td className={styles.even}>photon.css</td>
-            <td className={styles.even}>CSS</td>
-            <td className={styles.even}>28K</td>
-          </tr>
-          <tr className={styles.odd}>
-            <td>photon.css</td>
-            <td>CSS</td>
-            <td>28K</td>
-          </tr>
-          <tr>
-            <td className={styles.even}>photon.css</td>
-            <td className={styles.even}>CSS</td>
-            <td className={styles.even}>28K</td>
-          </tr>
+          { items }
         </tbody>
       </table>
     );

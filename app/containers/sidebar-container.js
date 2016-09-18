@@ -5,7 +5,7 @@ import * as SearchActions from '../actions/search-actions';
 
 function mapStateToProps(state) {
   return {
-    searchItems: state.search
+    searchItems: state.search.searchItems
   };
 }
 

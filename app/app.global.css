@@ -3,6 +3,11 @@ body {
   /*color: white;*/
 }
 
+iframe {
+  margin: 0 auto;
+  display: block;
+}
+
 /*body {
   position: relative;
   color: white;

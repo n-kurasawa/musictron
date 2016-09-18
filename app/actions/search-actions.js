@@ -8,7 +8,7 @@ export function search(query) {
       params: {
         q: query,
         part: 'snippet',
-        key: 'AIzaSyBvwRvxqEgnOCRZjEUiGnTSVSmG1JmVr78',
+        key: '',
         maxResults: 30
       }
     })
@@ -21,4 +21,12 @@ export function search(query) {
       console.log(error);
     });
   };
+}
+
+export function checkItem(item) {
+  return { type: SEARCH.CHECK_ITEM, item: item };
+}
+
+export function uncheckItem(item) {
+  return { type: SEARCH.UNCHECK_ITEM, item: item };
 }

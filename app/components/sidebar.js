@@ -3,13 +3,10 @@ import styles from './styles/sidebar.css';
 const ENTER_KEY = 13;
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.search = this.props.search;
-  }
-
   static propTypes = {
     search: PropTypes.func.isRequired,
+    checkItem: PropTypes.func.isRequired,
+    uncheckItem: PropTypes.func.isRequired,
     searchItems: PropTypes.array.isRequired
   };
 
@@ -17,20 +14,29 @@ class Sidebar extends Component {
     if (event.which === ENTER_KEY) {
       var val = event.target.value.trim();
       if (val) {
-        this.search(val);
+        this.props.search(val);
       }
+    }
+  }
+
+  handleCheck(event, item) {
+    if (event.target.checked) {
+      this.props.checkItem(item);
+    } else {
+      this.props.uncheckItem(item);
     }
   }
 
   render() {
     const { searchItems } = this.props;
-    const items = searchItems.map((item) =>  {
+    const items = searchItems.map((item, index) =>  {
       return (
-        <li className={`list-group-item ${styles.listGroupItem}`}>
+        <li key={index} className={`list-group-item ${styles.listGroupItem}`}>
           <div className="media-body">
-            <div class="checkbox">
+            <div className="checkbox">
               <label className={ styles.label }>
-                <input type="checkbox" /> {item.snippet.title}
+                <input className={ styles.checkbox } type="checkbox" onChange={(e) => { this.handleCheck(e, item) }} />
+                {item.snippet.title}
               </label>
             </div>
           </div>
