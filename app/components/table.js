@@ -3,16 +3,21 @@ import styles from './styles/table.css';
 
 class Table extends Component {
   static propTypes = {
-    checkItems: PropTypes.array.isRequired
+    cueItems: PropTypes.array.isRequired,
+    playById: PropTypes.func.isRequired
   };
 
+  handleClick(event, videoId) {
+    this.props.playById(videoId);
+  }
+
   render() {
-    const { checkItems } = this.props;
-    const items = checkItems.map((item, index) => {
+    const { cueItems } = this.props;
+    const items = cueItems.map((item, index) => {
       const style = (index % 2 === 0) ? styles.even : styles.odd;
       return (
         <tr key={index}>
-          <td className={style}>{item.snippet.title}</td>
+          <td className={`${style} ${styles.td}`} onClick={(e) => {this.handleClick(e, item.id.videoId)}}>{item.snippet.title}</td>
         </tr>
       );
     });

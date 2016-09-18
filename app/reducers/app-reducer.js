@@ -1,12 +1,12 @@
-import { SEARCH } from '../actions/';
+import { SEARCH, PLAY } from '../actions/';
 import _ from 'lodash';
 
 const initialState = {
-  searchItems: [],
-  checkItems: []
+  searchedItems: [],
+  cueItems: []
 };
 
-export default function search(state = initialState, action) {
+export default function app(state = initialState, action) {
   switch (action.type) {
     case SEARCH.START_SEARCH:
       return state;
@@ -14,30 +14,30 @@ export default function search(state = initialState, action) {
       return handleSearchItem(state, action.items);
     case SEARCH.FAIL_SEARCH:
       return state;
-    case SEARCH.CHECK_ITEM:
+    case PLAY.CHECK_ITEM:
       return checkItem(state, action.item)
-    case SEARCH.UNCHECK_ITEM:
+    case PLAY.UNCHECK_ITEM:
       return uncheckItem(state, action.item)
     default:
       return state;
   }
 }
 
-function handleSearchItem(state, searchItems) {
+function handleSearchItem(state, searchedItems) {
   return _.assign({}, state, {
-    searchItems: searchItems,
+    searchedItems: searchedItems,
   });
 }
 
 function checkItem(state, checkItem) {
   return _.assign({}, state, {
-    checkItems: [...state.checkItems, checkItem],
+    cueItems: [...state.cueItems, checkItem],
   });
 }
 
 function uncheckItem(state, uncheckItem) {
   return _.assign({}, state, {
-    checkItems: state.checkItems.filter((item) => {
+    cueItems: state.cueItems.filter((item) => {
       return item.id.videoId !== uncheckItem.id.videoId;
     })
   });

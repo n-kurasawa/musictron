@@ -1,23 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './styles/sidebar.css';
+import Search from '../containers/search-container';
 const ENTER_KEY = 13;
 
 class Sidebar extends Component {
   static propTypes = {
-    search: PropTypes.func.isRequired,
     checkItem: PropTypes.func.isRequired,
     uncheckItem: PropTypes.func.isRequired,
-    searchItems: PropTypes.array.isRequired
+    searchedItems: PropTypes.array.isRequired
   };
-
-  handleSubmit(event) {
-    if (event.which === ENTER_KEY) {
-      var val = event.target.value.trim();
-      if (val) {
-        this.props.search(val);
-      }
-    }
-  }
 
   handleCheck(event, item) {
     if (event.target.checked) {
@@ -28,8 +19,8 @@ class Sidebar extends Component {
   }
 
   render() {
-    const { searchItems } = this.props;
-    const items = searchItems.map((item, index) =>  {
+    const { searchedItems } = this.props;
+    const items = searchedItems.map((item, index) =>  {
       return (
         <li key={index} className={`list-group-item ${styles.listGroupItem}`}>
           <div className="media-body">
@@ -48,7 +39,7 @@ class Sidebar extends Component {
       <div className={`pane-one-fourth sidebar ${styles.sidebar}`}>
         <ul className={`list-group ${styles.listGroup}`}>
           <li className="list-group-header">
-            <input className="form-control" type="text" placeholder="Search" onKeyDown={(e) => {this.handleSubmit(e)}} />
+            <Search />
           </li>
           { items }
         </ul>

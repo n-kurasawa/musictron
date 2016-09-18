@@ -1,16 +1,16 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Sidebar from '../components/sidebar';
-import * as SearchActions from '../actions/search-actions';
+import * as PlayActions from '../actions/play-actions';
 
 function mapStateToProps(state) {
   return {
-    searchItems: state.search.searchItems
+    searchedItems: state.app.searchedItems
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(SearchActions, dispatch);
+  return bindActionCreators(PlayActions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

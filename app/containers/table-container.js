@@ -1,12 +1,16 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Table from '../components/table';
-import * as SearchActions from '../actions/search-actions';
+import * as PlayActions from '../actions/play-actions';
 
 function mapStateToProps(state) {
   return {
-    checkItems: state.search.checkItems
+    cueItems: state.app.cueItems
   };
 }
 
-export default connect(mapStateToProps)(Table);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(PlayActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);

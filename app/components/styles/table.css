@@ -12,6 +12,15 @@
   border: 1px solid #181a1f;
 }
 
+.td {
+  cursor: pointer;
+}
+
+.td:hover {
+  background-color: #9da5b4;
+  color: #21252b;
+}
+
 .odd {
   background-color: #21252b;
 }
