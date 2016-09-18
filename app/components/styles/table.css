@@ -3,6 +3,10 @@
   top: -5px;
 }
 
+.playing {
+  background-color: #116cd6;
+}
+
 .thead {
   background-color: #21252b;
   color: #9da5b4;
@@ -28,6 +32,16 @@
 
 .td {
   cursor: pointer;
+}
+
+.cancel {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cancel:hover::before {
+  font-size: 14px;
+  content: '\e815';
 }
 
 .td:hover {

@@ -8,7 +8,8 @@ class Table extends Component {
     closeView: PropTypes.func.isRequired,
     openView: PropTypes.func.isRequired,
     remove: PropTypes.func.isRequired,
-    isClosed: PropTypes.bool.isRequired
+    isClosed: PropTypes.bool.isRequired,
+    playingVideo: PropTypes.object.isRequired
   };
 
   handleClick(event, videoId) {
@@ -37,14 +38,14 @@ class Table extends Component {
   }
 
   render() {
-    const { cueItems } = this.props;
+    const { cueItems, playingVideo } = this.props;
     const items = cueItems.map((item, index) => {
-      const style = (index % 2 === 0) ? styles.even : styles.odd;
+      const style = (playingVideo.id && item.id.videoId === playingVideo.id.videoId) ? styles.playing : (index % 2 === 0) ? styles.even : styles.odd;
       return (
         <tr key={index}>
           <td className={`${style} ${styles.td}`} onClick={(e) => {this.handleClick(e, item.id.videoId)}}>
             <div className={styles.left}>{item.snippet.title}</div>
-            <div className={`icon icon-cancel ${styles.right} ${styles.pointer}`} onClick={ (e) => { this.remove(e, item.id.videoId) } }></div>
+            <div className={`icon icon-cancel ${styles.right} ${styles.cancel}`} onClick={ (e) => { this.remove(e, item.id.videoId) } }></div>
           </td>
         </tr>
       );
