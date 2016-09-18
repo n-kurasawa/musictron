@@ -5,7 +5,8 @@ import * as PlayActions from '../actions/play-actions';
 
 function mapStateToProps(state) {
   return {
-    cueItems: state.app.cueItems
+    cueItems: state.app.cueItems,
+    isClosed: state.app.isClosed
   };
 }
 

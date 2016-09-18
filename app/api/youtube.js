@@ -15,23 +15,21 @@ export function searchApi(query) {
   });
 }
 
-export function setIframe () {
-  var done = false;
+export function setIframe (onReady, onStateChange) {
   window.onYouTubeIframeAPIReady = () => {
     player = new YT.Player('player', {
       width: 300,
       height: 200,
       events: {
         onReady: (event) => {
-          // event.target.playVideo();
+          if (onReady) {
+            onReady(event);
+          }
         },
         onStateChange: (event) => {
-          // if (event.data == YT.PlayerState.PLAYING && !done) {
-          //   setTimeout(() => {
-          //     window.player.stopVideo();
-          //   }, 6000);
-          //   done = true;
-          // }
+          if (onStateChange) {
+            onStateChange(event);
+          }
         },
         onError: () => {}
       }

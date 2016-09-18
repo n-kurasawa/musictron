@@ -11,12 +11,12 @@ export function uncheckItem(item) {
 
 export function playById(videoId) {
   youtube.loadVideoById(videoId);
-  return { type: PLAY.PLAY, videoId: videoId };
+  return { type: PLAY.PLAY, videoId };
 }
 
 export function cueById(videoId) {
   youtube.cueVideoById(videoId);
-  return { type: PLAY.CUE, videoId: videoId };
+  return { type: PLAY.CUE, videoId };
 }
 
 export function playVideo() {
@@ -27,4 +27,20 @@ export function playVideo() {
 export function pouseVideo() {
   youtube.pauseVideo();
   return { type: PLAY.PAUSE };
+}
+
+export function endVideo() {
+  return { type: PLAY.END };
+}
+
+export function closeView(){
+  return { type: PLAY.CLOSE_VIEW };
+}
+
+export function openView(){
+  return { type: PLAY.OPEN_VIEW };
+}
+
+export function remove(videoId) {
+  return { type: PLAY.REMOVE, videoId };
 }

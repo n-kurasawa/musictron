@@ -9,7 +9,21 @@
 }
 
 .th {
-  border: 1px solid #181a1f;
+  border-top: 1px solid #181a1f;
+  border-bottom: 1px solid #181a1f;
+  border-right: 0px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .td {

@@ -7,7 +7,8 @@ class Sidebar extends Component {
   static propTypes = {
     checkItem: PropTypes.func.isRequired,
     uncheckItem: PropTypes.func.isRequired,
-    searchedItems: PropTypes.array.isRequired
+    searchedItems: PropTypes.array.isRequired,
+    cueIds: PropTypes.array.isRequired
   };
 
   handleCheck(event, item) {
@@ -18,15 +19,22 @@ class Sidebar extends Component {
     }
   }
 
+  isChecked(videoId) {
+    return this.props.cueIds.some((id) => {
+      return id === videoId;
+    });
+  }
+
   render() {
-    const { searchedItems } = this.props;
+    const { searchedItems, cueIds } = this.props;
     const items = searchedItems.map((item, index) =>  {
+      const checked = this.isChecked(item.id.videoId);
       return (
         <li key={index} className={`list-group-item ${styles.listGroupItem}`}>
           <div className="media-body">
             <div className="checkbox">
               <label className={ styles.label }>
-                <input className={ styles.checkbox } type="checkbox" onChange={(e) => { this.handleCheck(e, item) }} />
+                <input className={ styles.checkbox } checked={checked} type="checkbox" onChange={(e) => { this.handleCheck(e, item) }} />
                 {item.snippet.title}
               </label>
             </div>

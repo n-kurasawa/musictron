@@ -3,9 +3,16 @@ import { connect } from 'react-redux';
 import Sidebar from '../components/sidebar';
 import * as PlayActions from '../actions/play-actions';
 
+function getCueIds(cueItems) {
+  return cueItems.map((item) => {
+    return item.id.videoId;
+  });
+}
+
 function mapStateToProps(state) {
   return {
-    searchedItems: state.app.searchedItems
+    searchedItems: state.app.searchedItems,
+    cueIds: getCueIds(state.app.cueItems)
   };
 }
 
