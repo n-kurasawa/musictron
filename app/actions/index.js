@@ -6,6 +6,7 @@ export const SEARCH = {
 
 export const PLAY = {
   PLAY: 'PLAY',
+  PAUSE: 'PAUSE',
   CUE: 'CUE',
   CHECK_ITEM: 'CHECK_ITEM',
   UNCHECK_ITEM: 'UNCHECK_ITEM'

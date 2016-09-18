@@ -29,7 +29,7 @@ class Table extends Component {
             <th className={styles.th}>Title</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles.tbody}>
           { items }
         </tbody>
       </table>

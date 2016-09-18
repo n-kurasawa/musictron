@@ -19,7 +19,6 @@ export function setIframe () {
   var done = false;
   window.onYouTubeIframeAPIReady = () => {
     player = new YT.Player('player', {
-      videoId: '',
       width: 300,
       height: 200,
       events: {
@@ -27,12 +26,12 @@ export function setIframe () {
           // event.target.playVideo();
         },
         onStateChange: (event) => {
-          if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(() => {
-              window.player.stopVideo();
-            }, 6000);
-            done = true;
-          }
+          // if (event.data == YT.PlayerState.PLAYING && !done) {
+          //   setTimeout(() => {
+          //     window.player.stopVideo();
+          //   }, 6000);
+          //   done = true;
+          // }
         },
         onError: () => {}
       }
@@ -54,4 +53,12 @@ export function cuePlaylist(playlist) {
 
 export function loadPlaylist(playlist) {
   player.loadPlaylist(playlist);
+}
+
+export function playVideo() {
+  player.playVideo();
+}
+
+export function pauseVideo() {
+  player.pauseVideo();
 }

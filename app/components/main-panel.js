@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { setIframe } from '../api/youtube';
-import TopBar from '../components/top-bar';
+import TopBar from '../containers/top-bar-container';
 import Table from '../containers/table-container';
 import styles from './styles/main-panel.css';
 

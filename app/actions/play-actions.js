@@ -18,3 +18,13 @@ export function cueById(videoId) {
   youtube.cueVideoById(videoId);
   return { type: PLAY.CUE, videoId: videoId };
 }
+
+export function playVideo() {
+  youtube.playVideo();
+  return { type: PLAY.PLAY };
+}
+
+export function pouseVideo() {
+  youtube.pauseVideo();
+  return { type: PLAY.PAUSE };
+}

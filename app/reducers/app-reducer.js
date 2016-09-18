@@ -3,7 +3,10 @@ import _ from 'lodash';
 
 const initialState = {
   searchedItems: [],
-  cueItems: []
+  cueItems: [],
+  playingVideo: {},
+  isPlaying: false,
+  isPausing: false
 };
 
 export default function app(state = initialState, action) {
@@ -15,9 +18,13 @@ export default function app(state = initialState, action) {
     case SEARCH.FAIL_SEARCH:
       return state;
     case PLAY.CHECK_ITEM:
-      return checkItem(state, action.item)
+      return checkItem(state, action.item);
     case PLAY.UNCHECK_ITEM:
-      return uncheckItem(state, action.item)
+      return uncheckItem(state, action.item);
+    case PLAY.PLAY:
+      return play(state, action.videoId);
+    case PLAY.PAUSE:
+      return pause(state);
     default:
       return state;
   }
@@ -25,7 +32,7 @@ export default function app(state = initialState, action) {
 
 function handleSearchItem(state, searchedItems) {
   return _.assign({}, state, {
-    searchedItems: searchedItems,
+    searchedItems
   });
 }
 
@@ -40,5 +47,29 @@ function uncheckItem(state, uncheckItem) {
     cueItems: state.cueItems.filter((item) => {
       return item.id.videoId !== uncheckItem.id.videoId;
     })
+  });
+}
+
+function play(state, videoId) {
+  let playingVideo;
+  if (videoId) {
+    playingVideo = state.cueItems.find((item) => {
+      return item.id.videoId === videoId;
+    });
+  } else {
+    playingVideo = state.playingVideo;
+  }
+
+  return _.assign({}, state, {
+    playingVideo,
+    isPlaying: true,
+    isPausing: false
+  });
+}
+
+function pause(state) {
+  return _.assign({}, state, {
+    isPausing: true,
+    isPlaying: false
   });
 }
