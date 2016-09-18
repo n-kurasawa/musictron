@@ -1,4 +1,5 @@
 import axios from 'axios';
+import config from '../config/'
 
 let player;
 export function searchApi(query) {
@@ -6,7 +7,7 @@ export function searchApi(query) {
     params: {
       q: query,
       part: 'snippet',
-      key: '',
+      key: config.youtubeApiKey,
       maxResults: 30,
       videoEmbeddable: true,
       type: 'video',

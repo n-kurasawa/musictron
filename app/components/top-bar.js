@@ -4,7 +4,7 @@ import styles from './styles/top-bar.css';
 class TopBar extends Component {
   static propTypes = {
     playingVideo: PropTypes.object.isRequired,
-    firstVideo: PropTypes.object.isRequired,
+    firstVideo: PropTypes.object,
     previousVideo: PropTypes.object,
     nextVideo: PropTypes.object,
     isPlaying: PropTypes.bool.isRequired,
