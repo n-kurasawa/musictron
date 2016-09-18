@@ -24,6 +24,7 @@ function mapStateToProps(state) {
 
   return {
     playingVideo: state.app.playingVideo,
+    firstVideo: state.app.cueItems[0],
     previousVideo: getPreviousVideo(index, state.app.cueItems),
     nextVideo: getNextVideo(index, state.app.cueItems),
     isPlaying: state.app.isPlaying

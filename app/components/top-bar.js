@@ -4,16 +4,22 @@ import styles from './styles/top-bar.css';
 class TopBar extends Component {
   static propTypes = {
     playingVideo: PropTypes.object.isRequired,
+    firstVideo: PropTypes.object.isRequired,
     previousVideo: PropTypes.object,
     nextVideo: PropTypes.object,
     isPlaying: PropTypes.bool.isRequired,
     playVideo: PropTypes.func.isRequired,
     playById: PropTypes.func.isRequired,
-    pouseVideo: PropTypes.func.isRequired
+    pouseVideo: PropTypes.func.isRequired,
   };
 
   play() {
-    this.props.playVideo();
+    const { playingVideo, firstVideo } = this.props;
+    if (playingVideo.id) {
+      this.props.playVideo();
+    } else if (firstVideo){
+      this.props.playById(firstVideo.id.videoId);
+    }
   }
 
   pouse() {
