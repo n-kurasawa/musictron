@@ -1,5 +1,5 @@
 # Musictron
-- desktop youtube client
+desktop youtube client
 
 ## Architecture
 Electron + React + Redux
