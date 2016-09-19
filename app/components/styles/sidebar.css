@@ -1,7 +1,11 @@
 .sidebar {
   background-color: #21252b;
   color: #9da5b4;
-  overflow: auto;
+  height: 100%;
+}
+
+.border {
+  border-bottom: 1px solid #181a1f;
 }
 
 .listGroupItem {
@@ -13,8 +17,19 @@
 .label {
   font-size: 11px;
   line-height: normal;
+  width: 100%;
 }
 
 .checkbox {
   top: -1px;
+  width: 100%;
+}
+
+.scroll {
+  width: inherit;
+  overflow: scroll;
+  display: block;
+  position: fixed;
+  top: 52px;
+  bottom: 20px;
 }

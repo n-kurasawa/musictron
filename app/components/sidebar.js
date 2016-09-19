@@ -45,10 +45,12 @@ class Sidebar extends Component {
 
     return (
       <div className={`pane-one-fourth sidebar ${styles.sidebar}`}>
-        <ul className={`list-group ${styles.listGroup}`}>
+        <ul className={`list-group ${styles.border}`}>
           <li className="list-group-header">
             <Search />
           </li>
+        </ul>
+        <ul className={`list-group ${styles.scroll}`}>
           { items }
         </ul>
       </div>
