@@ -44,3 +44,11 @@ export function openView(){
 export function remove(videoId) {
   return { type: PLAY.REMOVE, videoId };
 }
+
+export function shuffle() {
+  return { type: PLAY.SHUFFLE };
+}
+
+export function loop() {
+  return { type: PLAY.LOOP };
+}

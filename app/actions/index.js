@@ -13,5 +13,7 @@ export const PLAY = {
   END: 'END',
   CLOSE_VIEW: 'CLOSE_VIEW',
   OPEN_VIEW: 'OPEN_VIEW',
-  REMOVE: 'REMOVE'
+  REMOVE: 'REMOVE',
+  SHUFFLE: 'SHUFFLE',
+  LOOP: 'LOOP'
 }

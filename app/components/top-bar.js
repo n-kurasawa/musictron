@@ -7,6 +7,8 @@ class TopBar extends Component {
     firstVideo: PropTypes.object,
     previousVideo: PropTypes.object,
     nextVideo: PropTypes.object,
+    isShuffle: PropTypes.bool.isRequired,
+    isLoop: PropTypes.bool.isRequired,
     isPlaying: PropTypes.bool.isRequired,
     playVideo: PropTypes.func.isRequired,
     playById: PropTypes.func.isRequired,
@@ -38,6 +40,14 @@ class TopBar extends Component {
     }
   }
 
+  shuffle() {
+    this.props.shuffle();
+  }
+
+  loop() {
+    this.props.loop();
+  }
+
   playButton(isPlaying) {
     if (isPlaying) {
       return (<span className={`icon icon-stop ${styles.play}`} onClick={() => { this.pouse() }}></span>);
@@ -47,13 +57,17 @@ class TopBar extends Component {
   }
 
   render() {
-    const { playingVideo, isPlaying } = this.props;
+    const { playingVideo, isPlaying, isShuffle, isLoop } = this.props;
     const title = playingVideo.snippet ? playingVideo.snippet.title : '';
     const playButton = this.playButton(isPlaying);
+    const shuffleStyle = isShuffle ? styles.iconActive : null;
+    const loopStyle = isLoop ? styles.iconActive : null;
     return (
       <div className={styles.topBar}>
         <div className={styles.playing}>{ title }</div>
         <div className={styles.playArea}>
+          <span className={`icon icon-shuffle ${styles.button} ${shuffleStyle}`} onClick={() => { this.shuffle() }}></span>
+          <span className={`icon icon-loop ${styles.button} ${loopStyle}`} onClick={() => { this.loop() }}></span>
           <span className={`icon icon-fast-backward ${styles.fast}`} onClick={() => { this.previous() }}></span>
           { playButton }
           <span className={`icon icon-fast-forward ${styles.fast}`} onClick={() => { this.next() }}></span>

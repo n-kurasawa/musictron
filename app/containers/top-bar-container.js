@@ -27,7 +27,9 @@ function mapStateToProps(state) {
     firstVideo: state.play.cueItems[0],
     previousVideo: getPreviousVideo(index, state.play.cueItems),
     nextVideo: getNextVideo(index, state.play.cueItems),
-    isPlaying: state.play.isPlaying
+    isPlaying: state.play.isPlaying,
+    isShuffle: state.play.isShuffle,
+    isLoop: state.play.isLoop
   };
 }
 

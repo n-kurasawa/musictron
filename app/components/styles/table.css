@@ -1,8 +1,3 @@
-.table {
-  position: relative;
-  top: -5px;
-}
-
 .playing {
   background-color: #116cd6;
 }
@@ -26,11 +21,14 @@
   float: left;
 }
 
-.pointer {
+.title {
+  position: relative;
+  top: 2px;
+  float: left;
   cursor: pointer;
 }
 
-.td {
+.pointer {
   cursor: pointer;
 }
 
@@ -42,6 +40,10 @@
 .cancel:hover::before {
   font-size: 14px;
   content: '\e815';
+}
+
+.td {
+  cursor: pointer;
 }
 
 .td:hover {
