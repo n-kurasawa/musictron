@@ -18,16 +18,16 @@ function getNextVideo(index, cueItems) {
 }
 
 function mapStateToProps(state) {
-  const index = state.app.cueItems.findIndex((item) => {
-    return item === state.app.playingVideo
+  const index = state.play.cueItems.findIndex((item) => {
+    return item === state.play.playingVideo
   });
 
   return {
-    playingVideo: state.app.playingVideo,
-    firstVideo: state.app.cueItems[0],
-    previousVideo: getPreviousVideo(index, state.app.cueItems),
-    nextVideo: getNextVideo(index, state.app.cueItems),
-    isPlaying: state.app.isPlaying
+    playingVideo: state.play.playingVideo,
+    firstVideo: state.play.cueItems[0],
+    previousVideo: getPreviousVideo(index, state.play.cueItems),
+    nextVideo: getNextVideo(index, state.play.cueItems),
+    isPlaying: state.play.isPlaying
   };
 }
 

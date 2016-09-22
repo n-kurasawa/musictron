@@ -11,14 +11,14 @@ function getNextVideo(index, cueItems) {
 }
 
 function mapStateToProps(state) {
-  const index = state.app.cueItems.findIndex((item) => {
-    return item === state.app.playingVideo
+  const index = state.play.cueItems.findIndex((item) => {
+    return item === state.play.playingVideo
   });
 
   return {
-    nextVideo: getNextVideo(index, state.app.cueItems),
-    isEnded: state.app.isEnded,
-    isClosed: state.app.isClosed,
+    nextVideo: getNextVideo(index, state.play.cueItems),
+    isEnded: state.play.isEnded,
+    isClosed: state.play.isClosed,
   };
 }
 

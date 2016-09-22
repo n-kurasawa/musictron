@@ -11,8 +11,8 @@ function getCueIds(cueItems) {
 
 function mapStateToProps(state) {
   return {
-    searchedItems: state.app.searchedItems,
-    cueIds: getCueIds(state.app.cueItems)
+    searchedItems: state.search.searchedItems,
+    cueIds: getCueIds(state.play.cueItems)
   };
 }
 

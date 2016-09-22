@@ -1,8 +1,7 @@
-import { SEARCH, PLAY } from '../actions/';
+import { PLAY } from '../actions/';
 import _ from 'lodash';
 
 const initialState = {
-  searchedItems: [],
   cueItems: [],
   playingVideo: {},
   isPlaying: false,
@@ -13,12 +12,6 @@ const initialState = {
 
 export default function app(state = initialState, action) {
   switch (action.type) {
-    case SEARCH.START_SEARCH:
-      return state;
-    case SEARCH.SUCCESS_SEARCH:
-      return handleSearchItem(state, action.items);
-    case SEARCH.FAIL_SEARCH:
-      return state;
     case PLAY.CHECK_ITEM:
       return checkItem(state, action.item);
     case PLAY.UNCHECK_ITEM:
@@ -38,12 +31,6 @@ export default function app(state = initialState, action) {
     default:
       return state;
   }
-}
-
-function handleSearchItem(state, searchedItems) {
-  return _.assign({}, state, {
-    searchedItems
-  });
 }
 
 function checkItem(state, checkItem) {

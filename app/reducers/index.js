@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { routerReducer as routing } from 'react-router-redux';
-import app from './app-reducer';
+import play from './play-reducer';
+import search from './search-reducer';
 
 const rootReducer = combineReducers({
-  app,
-  routing
+  play,
+  search
 });
 
 export default rootReducer;
