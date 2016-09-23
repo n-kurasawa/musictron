@@ -106,9 +106,13 @@ function remove(state, videoId) {
   const cueItems = state.cueItems.filter((item) => {
     return item.id.videoId !== videoId;
   });
+  const shuffleItems = state.shuffleItems.filter((item) => {
+    return item.id.videoId !== videoId;
+  })
 
   return _.assign({}, state, {
-    cueItems
+    cueItems,
+    shuffleItems
   });
 
 }
