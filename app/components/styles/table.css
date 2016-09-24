@@ -16,7 +16,7 @@
 }
 
 .open {
-  top: 280px;
+  top: 278px;
 }
 
 .close {
@@ -42,6 +42,7 @@
   top: 2px;
   float: left;
   cursor: pointer;
+  width: 95%;
 }
 
 .pointer {

@@ -8,6 +8,12 @@ iframe {
   display: block;
 }
 
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
 /*body {
   position: relative;
   color: white;

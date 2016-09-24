@@ -44,7 +44,7 @@ class Table extends Component {
       return (
         <tr key={index} className={styles.tr}>
           <td className={`${style} ${styles.td}`} onClick={(e) => {this.handleClick(e, item.id.videoId)}}>
-            <div className={`media-body ${styles.title}`}>{item.snippet.title}</div>
+            <label className={`media-body ${styles.title}`}>{item.snippet.title}</label>
             <div className={`icon icon-cancel ${styles.right} ${styles.cancel}`} onClick={ (e) => { this.remove(e, item.id.videoId) } }></div>
           </td>
         </tr>
