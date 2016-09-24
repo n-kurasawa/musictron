@@ -38,18 +38,19 @@ class Table extends Component {
   }
 
   render() {
-    const { cueItems, playingVideo } = this.props;
+    const { cueItems, playingVideo, isClosed } = this.props;
     const items = cueItems.map((item, index) => {
       const style = (playingVideo.id && item.id.videoId === playingVideo.id.videoId) ? styles.playing : (index % 2 === 0) ? styles.even : styles.odd;
       return (
-        <tr key={index}>
+        <tr key={index} className={styles.tr}>
           <td className={`${style} ${styles.td}`} onClick={(e) => {this.handleClick(e, item.id.videoId)}}>
-            <div className={styles.title}>{item.snippet.title}</div>
+            <div className={`media-body ${styles.title}`}>{item.snippet.title}</div>
             <div className={`icon icon-cancel ${styles.right} ${styles.cancel}`} onClick={ (e) => { this.remove(e, item.id.videoId) } }></div>
           </td>
         </tr>
       );
     });
+    const top = isClosed ? styles.close : styles.open;
 
     return (
       <table className="table-striped">
@@ -61,7 +62,7 @@ class Table extends Component {
             </th>
           </tr>
         </thead>
-        <tbody className={styles.tbody}>
+        <tbody className={`${styles.tbody} ${top}`}>
           { items }
         </tbody>
       </table>

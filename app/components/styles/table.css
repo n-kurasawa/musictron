@@ -7,6 +7,22 @@
   color: #9da5b4;
 }
 
+.tbody {
+  position: fixed;
+  width: 100%;
+  bottom: 20px;
+  overflow: auto;
+  background-color: rgb(40, 44, 52);
+}
+
+.open {
+  top: 280px;
+}
+
+.close {
+  top: 78px;
+}
+
 .th {
   border-top: 1px solid #181a1f;
   border-bottom: 1px solid #181a1f;
@@ -42,8 +58,15 @@
   content: '\e815';
 }
 
+.tr {
+  display: block;
+  width: 100%;
+}
+
 .td {
   cursor: pointer;
+  display: block;
+  width: 75%;
 }
 
 .td:hover {
