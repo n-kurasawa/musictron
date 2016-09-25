@@ -11,13 +11,13 @@
 .listGroupItem {
   color: #9da5b4;
   border-top: 1px solid #181a1f;
-  font-size: 2px;
 }
 
 .label {
   font-size: 11px;
   line-height: normal;
   width: 100%;
+  display: block;
 }
 
 .checkbox {
