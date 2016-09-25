@@ -6,6 +6,8 @@ class Player extends Component {
   static propTypes = {
     endVideo: PropTypes.func.isRequired,
     playById: PropTypes.func.isRequired,
+    play: PropTypes.func.isRequired,
+    pause: PropTypes.func.isRequired,
     isEnded: PropTypes.bool.isRequired,
     isClosed: PropTypes.bool.isRequired,
     nextVideo: PropTypes.object
@@ -13,8 +15,17 @@ class Player extends Component {
 
   componentDidMount() {
     setIframe(null, (event) => {
-      if (event.data == YT.PlayerState.ENDED) {
-        this.props.endVideo();
+      switch (event.data) {
+        case YT.PlayerState.ENDED:
+          this.props.endVideo();
+          break;
+        case YT.PlayerState.PLAYING:
+          this.props.play();
+          break;
+        case YT.PlayerState.PAUSED:
+          this.props.pause();
+          break;
+        default:
       }
     });
   }

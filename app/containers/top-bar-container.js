@@ -7,6 +7,8 @@ function getPreviousVideo(index, items) {
   if (index === -1) { return; }
   if (items[index - 1]) {
     return items[index - 1];
+  } else {
+    return items[items.length - 1];
   }
 }
 
@@ -14,6 +16,8 @@ function getNextVideo(index, items) {
   if (index === -1) { return; }
   if (items[index + 1]) {
     return items[index + 1];
+  } else {
+    return items[0];
   }
 }
 

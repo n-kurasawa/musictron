@@ -9,14 +9,17 @@ export function uncheckItem(item) {
   return { type: PLAY.UNCHECK_ITEM, item: item };
 }
 
+export function play() {
+  return { type: PLAY.PLAY };
+}
+
+export function pause() {
+  return { type: PLAY.PAUSE };
+}
+
 export function playById(videoId) {
   youtube.loadVideoById(videoId);
   return { type: PLAY.PLAY, videoId };
-}
-
-export function cueById(videoId) {
-  youtube.cueVideoById(videoId);
-  return { type: PLAY.CUE, videoId };
 }
 
 export function playVideo() {
