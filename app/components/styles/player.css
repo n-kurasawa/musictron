@@ -1,5 +1,7 @@
 .open {
   display: block;
+  top: 53px;
+  position: relative;
 }
 
 .close {

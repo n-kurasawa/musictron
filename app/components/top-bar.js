@@ -63,9 +63,11 @@ class TopBar extends Component {
     const shuffleStyle = isShuffle ? styles.iconActive : null;
     const loopStyle = isLoop ? styles.iconActive : null;
     return (
-      <div className={styles.topBar}>
-        <label className={styles.playing} title={ title }>{ title }</label>
-        <div className={styles.playArea}>
+      <div className={`pane-group ${styles.topBar}`}>
+        <div className="pane">
+          <label className={styles.playing} title={ title }>{ title }</label>
+        </div>
+        <div className={`pane-one-third ${styles.playArea}`}>
           <span className={`icon icon-shuffle ${styles.button} ${shuffleStyle}`} onClick={() => { this.shuffle() }}></span>
           <span className={`icon icon-loop ${styles.button} ${loopStyle}`} onClick={() => { this.loop() }}></span>
           <span className={`icon icon-fast-backward ${styles.fast}`} onClick={() => { this.previous() }}></span>

@@ -53,7 +53,7 @@ class Table extends Component {
     const top = isClosed ? styles.close : styles.open;
 
     return (
-      <table className="table-striped">
+      <table className={`table-striped ${styles.table}`}>
         <thead className={styles.thead}>
           <tr>
             <th className={styles.th}>

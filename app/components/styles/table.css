@@ -2,6 +2,11 @@
   background-color: #116cd6;
 }
 
+.table {
+  position: relative;
+  top: 53px;
+}
+
 .thead {
   background-color: #21252b;
   color: #9da5b4;
