@@ -33,7 +33,7 @@ class Sidebar extends Component {
         <li key={index} className={`list-group-item ${styles.listGroupItem}`}>
           <div className="media-body">
             <div className="checkbox">
-              <label className={ styles.label }>
+              <label className={ styles.label } title={ item.snippet.title }>
                 <input className={ styles.checkbox } checked={checked} type="checkbox" onChange={(e) => { this.handleCheck(e, item) }} />
                 {item.snippet.title}
               </label>
