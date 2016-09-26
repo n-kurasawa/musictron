@@ -5,6 +5,7 @@ export const SEARCH = {
 };
 
 export const PLAY = {
+  SET_IFRAME: 'SET_IFRAME',
   PLAY: 'PLAY',
   PAUSE: 'PAUSE',
   CUE: 'CUE',

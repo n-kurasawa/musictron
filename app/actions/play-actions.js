@@ -1,5 +1,23 @@
 import { PLAY } from './';
-import * as youtube from '../api/youtube';
+import youtube from '../api/youtube';
+
+export function setIframe() {
+  return (dispatch, getState) => {
+    youtube.setIframe(null, (event) => {
+      switch (event.data) {
+        case YT.PlayerState.ENDED:
+          dispatch(endVideo());
+          break;
+        case YT.PlayerState.PLAYING:
+          dispatch(play());
+          break;
+        case YT.PlayerState.PAUSED:
+          dispatch(pause());
+          break;
+      }
+    });
+  };
+}
 
 export function checkItem(item) {
   return { type: PLAY.CHECK_ITEM, item: item };
