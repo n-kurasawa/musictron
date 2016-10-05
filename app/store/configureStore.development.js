@@ -4,10 +4,12 @@ import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 import * as playActions from '../actions/play-actions';
 import * as searchActions from '../actions/search-actions';
+import * as playlistActions from '../actions/playlist-actions';
 
 const actionCreators = {
   ...playActions,
-  ...searchActions
+  ...searchActions,
+  ...playlistActions
 };
 
 const logger = createLogger({

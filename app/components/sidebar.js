@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './styles/sidebar.css';
 import Search from '../containers/search-container';
+import Playlist from '../containers/playlist-container';
 const ENTER_KEY = 13;
 
 class Sidebar extends Component {
@@ -53,6 +54,7 @@ class Sidebar extends Component {
         <ul className={`list-group ${styles.scroll}`}>
           { items }
         </ul>
+        <Playlist />
       </div>
     );
   }

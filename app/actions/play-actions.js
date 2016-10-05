@@ -73,3 +73,7 @@ export function shuffle() {
 export function loop() {
   return { type: PLAY.LOOP };
 }
+
+export function selectPlaylist(playlist) {
+  return { type: PLAY.SELECT_PLAYLIST, playlist: playlist };
+}

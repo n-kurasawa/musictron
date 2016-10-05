@@ -5,7 +5,7 @@ const initialState = {
   searchedItems: []
 };
 
-export default function app(state = initialState, action) {
+export default function search(state = initialState, action) {
   switch (action.type) {
     case SEARCH.START_SEARCH:
       return state;

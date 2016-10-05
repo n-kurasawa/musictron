@@ -21,17 +21,23 @@
 }
 
 .open {
-  top: 278px;
+  top: 282px;
 }
 
 .close {
-  top: 78px;
+  top: 82px;
 }
 
 .th {
   border-top: 1px solid #181a1f;
   border-bottom: 1px solid #181a1f;
   border-right: 0px;
+}
+
+.openCloseIcon {
+  float: right;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .right {
@@ -51,17 +57,18 @@
   font-size: 11px;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
 .cancel {
   cursor: pointer;
   font-size: 14px;
+  width: 8px;
 }
 
 .cancel:hover::before {
   font-size: 14px;
+  display: block;
+  width: 10px;
+  top: 5px;
+  right: 2px;
   content: '\e815';
 }
 
@@ -87,4 +94,24 @@
 
 .even {
   background-color: rgb(40, 44, 52);
+}
+
+.save {
+  font-size: 14px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.playlistInput {
+  height: 22px;
+  font-size: 12px;
+  position: relative;
+  top: -1px;
+  width: 100%;
+  padding: 3px 5px;
+  line-height: 1.6;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: 0;
 }

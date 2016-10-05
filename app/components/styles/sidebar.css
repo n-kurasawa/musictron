@@ -15,7 +15,7 @@
 
 .label {
   font-size: 11px;
-  line-height: normal;
+  line-height: 17px;
   width: 100%;
   display: block;
 }
@@ -31,5 +31,5 @@
   display: block;
   position: fixed;
   top: 52px;
-  bottom: 20px;
+  bottom: 50%;
 }

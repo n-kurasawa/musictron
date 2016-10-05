@@ -12,16 +12,17 @@ const initialState = {
   isClosed: false,
   isShuffle: false,
   isLoop: false,
+  playlistTitle: null
 };
 
-export default function app(state = initialState, action) {
+export default function play(state = initialState, action) {
   switch (action.type) {
     case PLAY.CHECK_ITEM:
       return checkItem(state, action.item);
     case PLAY.UNCHECK_ITEM:
       return uncheckItem(state, action.item);
     case PLAY.PLAY:
-      return play(state, action.videoId);
+      return playVideo(state, action.videoId);
     case PLAY.PAUSE:
       return pause(state);
     case PLAY.END:
@@ -36,6 +37,11 @@ export default function app(state = initialState, action) {
       return shuffle(state);
     case PLAY.LOOP:
       return _.assign({}, state, { isLoop: !state.isLoop });
+    case PLAY.SELECT_PLAYLIST:
+      return _.assign({}, state, {
+        cueItems: action.playlist.items,
+        playlistTitle: action.playlist.title
+      });
     default:
       return state;
   }
@@ -59,7 +65,7 @@ function uncheckItem(state, uncheckItem) {
   });
 }
 
-function play(state, videoId) {
+function playVideo(state, videoId) {
   let playingVideo;
   if (videoId) {
     playingVideo = state.cueItems.find((item) => {

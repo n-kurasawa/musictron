@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './styles/table.css';
+const ENTER_KEY = 13;
 
 class Table extends Component {
   static propTypes = {
@@ -8,12 +9,33 @@ class Table extends Component {
     closeView: PropTypes.func.isRequired,
     openView: PropTypes.func.isRequired,
     remove: PropTypes.func.isRequired,
+    save: PropTypes.func.isRequired,
     isClosed: PropTypes.bool.isRequired,
-    playingVideo: PropTypes.object.isRequired
+    playingVideo: PropTypes.object.isRequired,
+    playingList: PropTypes.object.isRequired
   };
+
+  constructor(props, context) {
+    super(props, context);
+    this.state = { isPlaylistEdit: false };
+  }
 
   handleClick(event, videoId) {
     this.props.playById(videoId);
+  }
+
+  handleSave(event) {
+    if (event.which === ENTER_KEY) {
+      var name = event.target.value.trim();
+      if (name) {
+        this.props.save(name, this.props.cueItems);
+      }
+      this.setState({ isPlaylistEdit: false });
+    }
+  }
+
+  handleClickSave() {
+    this.setState({ isPlaylistEdit: true });
   }
 
   closeView() {
@@ -31,9 +53,18 @@ class Table extends Component {
 
   openIcon() {
     if (this.props.isClosed) {
-      return (<div className={`icon icon-down-open ${styles.pointer} ${styles.right}`} onClick={() => { this.openView() }}/>);
+      return (<div className={`icon icon-down-open ${styles.pointer} ${styles.openCloseIcon}`} onClick={() => { this.openView() }}/>);
     } else {
-      return (<div className={`icon icon-up-open ${styles.pointer} ${styles.right}`} onClick={() => { this.closeView() }}/>);
+      return (<div className={`icon icon-up-open ${styles.pointer} ${styles.openCloseIcon}`} onClick={() => { this.closeView() }}/>);
+    }
+  }
+
+  playlistTitle() {
+    if (this.state.isPlaylistEdit) {
+      return (<input type="text" className={`${styles.playlistInput}`} onKeyDown={(e) => {this.handleSave(e)}} placeholder="Playlist Title"/>);
+    } else {
+      const title = this.props.playingList.title || 'Playlist';
+      return (<span>{title}</span>);
     }
   }
 
@@ -57,7 +88,10 @@ class Table extends Component {
         <thead className={styles.thead}>
           <tr>
             <th className={styles.th}>
-              <div className={styles.left}>Title</div>
+              <div className={styles.left}>
+                { this.playlistTitle() }
+                <span className={`icon icon-download ${styles.save}`} onClick={() => {this.handleClickSave()}}></span>
+              </div>
               { this.openIcon() }
             </th>
           </tr>

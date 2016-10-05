@@ -16,5 +16,12 @@ export const PLAY = {
   OPEN_VIEW: 'OPEN_VIEW',
   REMOVE: 'REMOVE',
   SHUFFLE: 'SHUFFLE',
-  LOOP: 'LOOP'
+  LOOP: 'LOOP',
+  SELECT_PLAYLIST: 'SELECT_PLAYLIST'
+}
+
+export const PLAYLIST = {
+  SAVE: 'SAVE',
+  FETCH: 'FETCH',
+  SELECT: 'SELECT'
 }
