@@ -1,31 +1,11 @@
-.playing {
-  background-color: #116cd6;
-}
-
 .table {
   position: relative;
-  top: 53px;
+  top: 52px;
 }
 
 .thead {
   background-color: #21252b;
   color: #9da5b4;
-}
-
-.tbody {
-  position: fixed;
-  width: 100%;
-  bottom: 20px;
-  overflow: auto;
-  background-color: rgb(40, 44, 52);
-}
-
-.open {
-  top: 282px;
-}
-
-.close {
-  top: 82px;
 }
 
 .th {
@@ -48,70 +28,8 @@
   float: left;
 }
 
-.title {
-  position: relative;
-  top: 2px;
-  float: left;
-  cursor: pointer;
-  width: 95%;
-  font-size: 11px;
-}
-
-.cancel {
-  cursor: pointer;
-  font-size: 14px;
-  width: 8px;
-}
-
-.cancel:hover::before {
-  font-size: 14px;
-  display: block;
-  width: 10px;
-  top: 5px;
-  right: 2px;
-  content: '\e815';
-}
-
-.tr {
-  display: block;
-  width: 100%;
-}
-
-.td {
-  cursor: pointer;
-  display: block;
-  width: 75%;
-}
-
-.td:hover {
-  background-color: #9da5b4;
-  color: #21252b;
-}
-
-.odd {
-  background-color: #21252b;
-}
-
-.even {
-  background-color: rgb(40, 44, 52);
-}
-
-.save {
-  font-size: 14px;
-  margin-left: 15px;
-  cursor: pointer;
-}
-
-.playlistInput {
-  height: 22px;
+.plaulistTitle {
   font-size: 12px;
   position: relative;
-  top: -1px;
-  width: 100%;
-  padding: 3px 5px;
-  line-height: 1.6;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  outline: 0;
+  top: 2px;
 }

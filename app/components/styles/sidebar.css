@@ -31,5 +31,12 @@
   display: block;
   position: fixed;
   top: 52px;
+}
+
+.playlistOpen {
   bottom: 50%;
+}
+
+.playlistClose {
+  bottom: 48px;
 }

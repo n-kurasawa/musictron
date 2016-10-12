@@ -14,7 +14,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Object.assign({}, PlayActions, { save: PlaylistActions.save }), dispatch);
+  return bindActionCreators(PlayActions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

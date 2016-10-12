@@ -12,6 +12,15 @@ class Sidebar extends Component {
     cueIds: PropTypes.array.isRequired
   };
 
+  constructor(props, context) {
+    super(props, context);
+    this.state = { playlistOpen: false };
+  }
+
+  menuToggle() {
+    this.setState({playlistOpen: !this.state.playlistOpen});
+  }
+
   handleCheck(event, item) {
     if (event.target.checked) {
       this.props.checkItem(item);
@@ -28,6 +37,8 @@ class Sidebar extends Component {
 
   render() {
     const { searchedItems, cueIds } = this.props;
+    const playlistOpen = this.state.playlistOpen;
+    const style = playlistOpen ? styles.playlistOpen : styles.playlistClose;
     const items = searchedItems.map((item, index) =>  {
       const checked = this.isChecked(item.id.videoId);
       return (
@@ -51,10 +62,10 @@ class Sidebar extends Component {
             <Search />
           </li>
         </ul>
-        <ul className={`list-group ${styles.scroll}`}>
+        <ul className={`list-group ${styles.scroll} ${style}`}>
           { items }
         </ul>
-        <Playlist />
+        <Playlist menuToggle={ () => { this.menuToggle() } } playlistOpen={ playlistOpen }/>
       </div>
     );
   }

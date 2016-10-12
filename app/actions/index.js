@@ -22,6 +22,8 @@ export const PLAY = {
 
 export const PLAYLIST = {
   SAVE: 'SAVE',
+  ADD: 'ADD',
   FETCH: 'FETCH',
-  SELECT: 'SELECT'
+  SELECT: 'SELECT',
+  REMOVE: 'REMOVE'
 }

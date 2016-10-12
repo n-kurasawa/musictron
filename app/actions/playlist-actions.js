@@ -1,22 +1,40 @@
 import { PLAYLIST } from './';
-import * as repository from '../api/repository';
+import playlistRepo from '../repositories/playlist-repository';
 
-export function save(title, items) {
+export function save(title) {
   return (dispatch, getState) => {
-    repository.addPlaylist(title, items).then(() => {
-      dispatch({ type: PLAYLIST.SAVE, playingList: { title: title, items: items } });
+    const playlist = { title, items: [] };
+    playlistRepo.savePlaylist(playlist).then((savedPlaylist) => {
+      dispatch({ type: PLAYLIST.SAVE, playingList: savedPlaylist });
+    });
+  };
+}
+
+export function add(item) {
+  return (dispatch, getState) => {
+    console.log(getState());
+    playlistRepo.addPlaylist(item).then(() => {
+      dispatch({ type: PLAYLIST.ADD });
+    });
+  };
+}
+
+export function remove(id) {
+  return (dispatch, getState) => {
+    playlistRepo.removePlaylist(id).then(() => {
+      dispatch({ type: PLAYLIST.REMOVE, id: id });
     });
   };
 }
 
 export function fetch() {
   return (dispatch, getState) => {
-    repository.fetchPlaylist().then((lists) => {
+    playlistRepo.findAll().then((lists) => {
       dispatch({ type: PLAYLIST.FETCH, lists: lists });
     });
   };
 }
 
 export function select(list) {
-  return { type: PLAYLIST.SELECT, playingList: list }
+  return { type: PLAYLIST.SELECT, playingList: list };
 }

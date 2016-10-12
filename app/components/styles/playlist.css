@@ -1,21 +1,71 @@
 .playlist {
-  width: 100%;
+  width: inherit;
   border-top: 1px solid #181a1f;
   position: fixed;
-  top: 50%;
-  bottom: 20px;
   overflow: auto;
 }
 
+.open {
+  top: 50%;
+  bottom: 20px;
+}
+
+.close {
+  bottom: 20px;
+  height: 26px;
+}
+
 .title {
+  background-color: rgb(40, 44, 52);
+  padding-top: 2px;
   color: #9da5b4;
 }
 
 .item {
+  width: 100%;
   color: #9da5b4;
+  font-size: 13px;
+  padding-left: 15px;
 }
 
-.icon {
+.itemIcon {
+  font-size: 14px !important;
+  margin-top: -1px !important;
+  color: #9da5b4 !important;
+}
+
+.itemIconCancel {
+  font-size: 14px !important;
+  margin-top: -1px !important;
+  margin-right: 0px !important;
+  float: right !important;
+  width: 8px !important;
+  color: #9da5b4 !important;
+  cursor: pointer;
+}
+
+.iconMenu {
   font-size: 14px;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.iconPlus {
+  font-size: 14px;
+  float: right;
+  cursor: pointer;
+}
+
+.playlistInput {
+  height: 22px;
+  font-size: 12px;
+  position: relative;
+  top: -1px;
+  width: 100%;
+  padding: 3px 5px;
+  line-height: 1.6;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: 0;
 }

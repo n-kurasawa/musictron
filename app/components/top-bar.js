@@ -70,9 +70,9 @@ class TopBar extends Component {
         <div className={`pane-one-third ${styles.playArea}`}>
           <span className={`icon icon-shuffle ${styles.button} ${shuffleStyle}`} onClick={() => { this.shuffle() }}></span>
           <span className={`icon icon-loop ${styles.button} ${loopStyle}`} onClick={() => { this.loop() }}></span>
-          <span className={`icon icon-fast-backward ${styles.fast}`} onClick={() => { this.previous() }}></span>
+          <span className={`icon icon-to-start ${styles.fast}`} onClick={() => { this.previous() }}></span>
           { playButton }
-          <span className={`icon icon-fast-forward ${styles.fast}`} onClick={() => { this.next() }}></span>
+          <span className={`icon icon-to-end ${styles.fast}`} onClick={() => { this.next() }}></span>
         </div>
       </div>
     );
