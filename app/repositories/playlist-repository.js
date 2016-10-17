@@ -17,8 +17,27 @@ class PlaylistRepository {
     return this.repo.setItem(id, Object.assign({id: id}, val));
   }
 
-  addPlaylist(val) {
+  updatePlaylist(id, list) {
+    return this.repo.setItem(id, list);
+  }
 
+  add(playlistId, item) {
+    return this.findPlaylist(playlistId).then((list) => {
+      return Object.assign({}, list, {items: [...list.items, item]} )
+    }).then((list) => {
+      return this.updatePlaylist(playlistId, list);
+    });
+  }
+
+  remove(playlistId, videoId) {
+    return this.findPlaylist(playlistId).then((list) => {
+      const items = list.items.filter((item) => {
+        return item.id.videoId !== videoId;
+      });
+      return Object.assign({}, list, {items: items});
+    }).then((list) => {
+      return this.updatePlaylist(playlistId, list);
+    });
   }
 
   findPlaylist(id) {

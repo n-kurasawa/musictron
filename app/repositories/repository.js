@@ -1,5 +1,4 @@
 import localforage from "localforage";
-import uuid from "uuid";
 
 class Repository extends localforage.constructor {
   constructor(options) {

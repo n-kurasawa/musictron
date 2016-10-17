@@ -1,4 +1,4 @@
-import { PLAYLIST } from './';
+import { PLAYLIST, PLAY } from './';
 import playlistRepo from '../repositories/playlist-repository';
 
 export function save(title) {
@@ -6,6 +6,7 @@ export function save(title) {
     const playlist = { title, items: [] };
     playlistRepo.savePlaylist(playlist).then((savedPlaylist) => {
       dispatch({ type: PLAYLIST.SAVE, playingList: savedPlaylist });
+      dispatch({ type: PLAY.SELECT_PLAYLIST, playlist: savedPlaylist });
     });
   };
 }
@@ -35,6 +36,11 @@ export function fetch() {
   };
 }
 
-export function select(list) {
-  return { type: PLAYLIST.SELECT, playingList: list };
+export function select(id) {
+  return (dispatch) => {
+    playlistRepo.findPlaylist(id).then((list) => {
+      dispatch({ type: PLAYLIST.SELECT, playingList: list });
+      dispatch({ type: PLAY.SELECT_PLAYLIST, playlist: list });
+    });
+  };
 }

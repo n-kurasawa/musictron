@@ -1,5 +1,6 @@
 import { PLAY } from './';
 import youtube from '../api/youtube';
+import playlistRepo from '../repositories/playlist-repository';
 
 export function setIframe() {
   return (dispatch, getState) => {
@@ -20,11 +21,23 @@ export function setIframe() {
 }
 
 export function checkItem(item) {
-  return { type: PLAY.CHECK_ITEM, item: item };
+  return (dispatch, getState) => {
+    const id = getState().playlist.playingList.id;
+    if (id) {
+      playlistRepo.add(id, item);
+    }
+    dispatch({ type: PLAY.CHECK_ITEM, item: item });
+  };
 }
 
 export function uncheckItem(item) {
-  return { type: PLAY.UNCHECK_ITEM, item: item };
+  return (dispatch, getState) => {
+    const id = getState().playlist.playingList.id;
+    if (id) {
+      playlistRepo.remove(id, item.id.videoId);
+    }
+    dispatch({ type: PLAY.UNCHECK_ITEM, item: item });
+  };
 }
 
 export function play() {

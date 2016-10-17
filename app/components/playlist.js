@@ -21,9 +21,8 @@ class Playlist extends Component {
     this.props.fetch();
   }
 
-  selectPlaylist(list) {
-    this.props.select(list);
-    this.props.selectPlaylist(list);
+  selectPlaylist(id) {
+    this.props.select(id);
   }
 
   remove(event, id) {
@@ -58,7 +57,7 @@ class Playlist extends Component {
     const { lists } = this.props;
     const list = lists.map((list) => {
       return (
-        <span key={list.id} className={`nav-group-item ${styles.item}`} onClick={ () => { this.selectPlaylist(list) }}>
+        <span key={list.id} className={`nav-group-item ${styles.item}`} onClick={ () => { this.selectPlaylist(list.id) }}>
           <span className={`icon icon-note-beamed ${styles.itemIcon}`}/>
           { list.title }
           <span className={`icon icon-cancel ${styles.itemIconCancel}`} onClick={ (e) => { this.remove(e, list.id) }}/>

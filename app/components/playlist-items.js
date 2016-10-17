@@ -22,7 +22,7 @@ class PlaylistItems extends Component {
     const { cueItems, playingVideo, isClosed } = this.props;
     const top = isClosed ? styles.close : styles.open;
 
-    const items = this.props.cueItems.map((item, index) => {
+    const items = cueItems.map((item, index) => {
       const style = (playingVideo.id && item.id.videoId === playingVideo.id.videoId) ? styles.playing : (index % 2 === 0) ? styles.even : styles.odd;
       return (
         <tr key={index} className={styles.tr}>

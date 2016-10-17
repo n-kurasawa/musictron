@@ -14,7 +14,7 @@ class Sidebar extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = { playlistOpen: false };
+    this.state = { playlistOpen: true };
   }
 
   menuToggle() {
