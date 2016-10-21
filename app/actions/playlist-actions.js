@@ -13,7 +13,6 @@ export function save(title) {
 
 export function add(item) {
   return (dispatch, getState) => {
-    console.log(getState());
     playlistRepo.addPlaylist(item).then(() => {
       dispatch({ type: PLAYLIST.ADD });
     });

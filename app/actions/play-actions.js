@@ -76,7 +76,13 @@ export function openView(){
 }
 
 export function remove(videoId) {
-  return { type: PLAY.REMOVE, videoId };
+  return (dispatch, getState) => {
+    const id = getState().playlist.playingList.id;
+    if (id) {
+      playlistRepo.remove(id, videoId);
+    }
+    dispatch({ type: PLAY.REMOVE, videoId });
+  };
 }
 
 export function shuffle() {
