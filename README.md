@@ -5,6 +5,7 @@ desktop youtube client
 Electron + React + Redux
 
 ## Demo
+https://n-kurasawa.github.io/musictron/
 ![demo](https://github.com/n-kurasawa/musictron/blob/master/demo.gif)
 
 ## usage 
