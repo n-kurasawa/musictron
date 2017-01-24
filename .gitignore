@@ -1,3 +1,30 @@
+### https://raw.github.com/github/gitignore/d866fb556184cc1edffd9d0f1ca205fe1916a7f6/Global/OSX.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+### https://raw.github.com/github/gitignore/d866fb556184cc1edffd9d0f1ca205fe1916a7f6/Node.gitignore
+
 # Logs
 logs
 *.log
@@ -23,17 +50,8 @@ coverage
 build/Release
 
 # Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
-
-# OSX
-.DS_Store
-
-# App packaged
-dist
-release
-main.js
-main.js.map
-
-# config
-app/config/index.js
+public/bundle.js
+public/bundle.css
+.nyc_output
