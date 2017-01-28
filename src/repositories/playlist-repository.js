@@ -1,5 +1,5 @@
-import Repository from "./repository";
-import uuid from "uuid";
+import uuid from 'uuid';
+import Repository from './repository';
 
 class PlaylistRepository {
   constructor() {
@@ -14,7 +14,7 @@ class PlaylistRepository {
 
   savePlaylist(val) {
     const id = uuid.v1();
-    return this.repo.setItem(id, Object.assign({id: id}, val));
+    return this.repo.setItem(id, Object.assign({ id }, val));
   }
 
   updatePlaylist(id, list) {
@@ -22,22 +22,22 @@ class PlaylistRepository {
   }
 
   add(playlistId, item) {
-    return this.findPlaylist(playlistId).then((list) => {
-      return Object.assign({}, list, {items: [...list.items, item]} )
-    }).then((list) => {
-      return this.updatePlaylist(playlistId, list);
-    });
+    return this.findPlaylist(playlistId).then(list => (
+      Object.assign({}, list, { items: [...list.items, item] })
+    )).then(list => (
+      this.updatePlaylist(playlistId, list)
+    ));
   }
 
   remove(playlistId, videoId) {
-    return this.findPlaylist(playlistId).then((list) => {
-      const items = list.items.filter((item) => {
-        return item.id.videoId !== videoId;
-      });
-      return Object.assign({}, list, {items: items});
-    }).then((list) => {
-      return this.updatePlaylist(playlistId, list);
-    });
+    return this.findPlaylist(playlistId).then(list => {
+      const items = list.items.filter(item => (
+        item.id.videoId !== videoId
+      ));
+      return Object.assign({}, list, { items });
+    }).then(list => (
+      this.updatePlaylist(playlistId, list)
+    ));
   }
 
   findPlaylist(id) {

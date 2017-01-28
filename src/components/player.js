@@ -17,8 +17,8 @@ class Player extends Component {
   props: {
     playById: Function,
     setIframe: Function,
-    isEnded: Boolean,
-    isClosed: Boolean,
+    isEnded: boolean,
+    isClosed: boolean,
     nextVideo: Object
   };
 

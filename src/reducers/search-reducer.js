@@ -1,9 +1,15 @@
-import { SEARCH } from '../actions/';
 import _ from 'lodash';
+import { SEARCH } from '../actions/';
 
 const initialState = {
   searchedItems: []
 };
+
+function handleSearchItem(state, searchedItems) {
+  return _.assign({}, state, {
+    searchedItems
+  });
+}
 
 export default function search(state = initialState, action) {
   switch (action.type) {
@@ -16,10 +22,4 @@ export default function search(state = initialState, action) {
     default:
       return state;
   }
-}
-
-function handleSearchItem(state, searchedItems) {
-  return _.assign({}, state, {
-    searchedItems
-  });
 }

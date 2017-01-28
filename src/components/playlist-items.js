@@ -8,7 +8,7 @@ class PlaylistItems extends Component {
     remove: Function,
     playById: Function,
     playingVideo: Object,
-    isClosed: Boolean
+    isClosed: boolean
   };
 
   handleClick(event: Event, videoId: string) {

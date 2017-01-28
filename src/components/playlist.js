@@ -4,13 +4,13 @@ import styles from './styles/playlist.css';
 
 const ENTER_KEY = 13;
 type Props = {
-  lists: Array,
+  lists: Array<Object>,
   fetch: Function,
   select: Function,
   remove: Function,
   save: Function,
   menuToggle: Function,
-  playlistOpen: Boolean
+  playlistOpen: boolean
 }
 
 class Playlist extends Component {
@@ -20,18 +20,18 @@ class Playlist extends Component {
   }
 
   state : {
-    adding: Boolean
+    adding: boolean
   }
 
   componentDidMount() {
     this.props.fetch();
   }
 
-  selectPlaylist(id) {
+  selectPlaylist(id: string) {
     this.props.select(id);
   }
 
-  remove(event, id) {
+  remove(event: Event, id: string) {
     event.stopPropagation();
     this.props.remove(id);
   }
@@ -49,7 +49,7 @@ class Playlist extends Component {
     );
   }
 
-  savePlaylist(event) {
+  savePlaylist(event: KeyboardEvent) {
     if (event.which === ENTER_KEY) {
       const title = event.target.value.trim();
       if (title) {

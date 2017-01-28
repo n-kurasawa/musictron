@@ -4,9 +4,7 @@ import Sidebar from '../components/sidebar';
 import * as PlayActions from '../actions/play-actions';
 
 function getCueIds(cueItems) {
-  return cueItems.map((item) => {
-    return item.id.videoId;
-  });
+  return cueItems.map(item => item.id.videoId);
 }
 
 function mapStateToProps(state) {

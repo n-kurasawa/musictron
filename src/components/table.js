@@ -8,7 +8,7 @@ class Table extends Component {
   props: {
     closeView: Function,
     openView: Function,
-    isClosed: Boolean,
+    isClosed: boolean,
     playingList: Object
   }
 

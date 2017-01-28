@@ -1,21 +1,19 @@
-import localforage from "localforage";
+import localforage from 'localforage';
 
 class Repository extends localforage.constructor {
   constructor(options) {
     const opt = Object.assign({
-        driver      : localforage.INDEXEDDB,
-        name        : 'musictron'
-    }, options)
+      driver: localforage.INDEXEDDB,
+      name: 'musictron'
+    }, options);
     super(opt);
   }
 
   all() {
-    let items = [];
-    return this.iterate((value, key, iterationNumber) => {
+    const items = [];
+    return this.iterate(value => {
       items.push(value);
-    }).then(() => {
-      return items;
-    });
+    }).then(() => items);
   }
 }
 

@@ -8,9 +8,9 @@ class TopBar extends Component {
     firstVideo: ?Object,
     previousVideo: ?Object,
     nextVideo: ?Object,
-    isShuffle: Boolean,
-    isLoop: Boolean,
-    isPlaying: Boolean,
+    isShuffle: boolean,
+    isLoop: boolean,
+    isPlaying: boolean,
     playVideo: Function,
     playById: Function,
     pouseVideo: Function,
@@ -51,7 +51,7 @@ class TopBar extends Component {
     this.props.loop();
   }
 
-  playButton(isPlaying: Boolean) {
+  playButton(isPlaying: boolean) {
     if (isPlaying) {
       return (<span className={`icon icon-stop ${styles.play}`} onClick={() => { this.pouse(); }} />);
     } else {

@@ -15,9 +15,7 @@ function getNextVideo(index, items, isLoop) {
 function mapStateToProps(state) {
   const items = state.play.isShuffle ? state.play.shuffleItems : state.play.cueItems;
 
-  const index = items.findIndex((item) => {
-    return item === state.play.playingVideo;
-  });
+  const index = items.findIndex(item => item === state.play.playingVideo);
 
   return {
     nextVideo: getNextVideo(index, items, state.play.isLoop),

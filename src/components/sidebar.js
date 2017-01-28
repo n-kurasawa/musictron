@@ -18,7 +18,7 @@ class Sidebar extends Component {
   }
 
   state: {
-    playlistOpen: Boolean
+    playlistOpen: boolean
   }
 
   menuToggle() {
